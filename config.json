@@ -1,0 +1,30 @@
+{
+    "test_id": "working_test",
+    "description": " API可用测试 - 使用prompts.txt",
+    "concurrent_users": 2,
+    "active_threads": 2,
+    "duration": 10,
+    "api_config": {
+        "url": "https://xxxx/chat/v2/completions",
+        "method": "POST",
+        "headers": {
+            "Authorization": "Bearer 1susr3W5xCxlCPwfT3nw8CD8UYd2d2lLY9EQrAB7YhSgRpxpY",
+            "Content-Type": "application/json"
+        },
+        "request_template": {
+            "model": "xxxx",
+            "messages": [
+                {"role": "user", "content": "${prompt}"}
+            ],
+            "stream": true
+        },
+        "stream": true,
+        "timeout": 60,
+        "token_path": "message.content",
+        "session_id_path": "id",
+        "error_path": "status_code"
+    },
+    "prompt_pool_file": "prompts.txt",
+    "use_random_prompt": true,
+    "use_dynamic_pool": true
+} 
